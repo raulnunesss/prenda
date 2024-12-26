@@ -68,11 +68,12 @@
                 /* A imagem sobreposta, que fica centralizada sobre a base */
                 .imagem-sobreposta {
                     position: absolute;
-                    top: 60px;
-                    left: 150px;
-                    width: 30%; /* Ajuste o tamanho da imagem sobreposta */
-                    height: 40%; /* Ajuste o tamanho da imagem sobreposta */
-                    object-fit: contain; /* A imagem sobreposta manterá a proporção */
+                    top: 50%;   /* Move a imagem 50% para baixo do contêiner */
+                    left: 50%;  /* Move a imagem 50% para a direita do contêiner */
+                    transform: translate(-50%, -50%); /* Ajusta a imagem para centralizar completamente */
+                    width: 450px; /* Ajuste o tamanho da imagem sobreposta */
+                    height: 150px; /* Ajuste o tamanho da imagem sobreposta */
+                    object-fit: contain; /* Faz a imagem manter sua proporção */
                 }
 
                 /* O link envolvendo a imagem sobreposta */
@@ -103,15 +104,14 @@
     <p>💖 Tu és a razão de todos os meus sorrisos! 💖</p>
     <div class="imagem-container">
         <!-- Link que envolve a imagem sobreposta -->
-        <!--<a href="https://raulnunesss.github.io/carol_prenda_2024/" class="link-imagem">
+        <a href="https://raulnunesss.github.io/carol_prenda_2024/" class="link-imagem">
             <img src="mainimg/_104867988_gettyimages-894318098_976.jpg.webp" alt="Imagem sobreposta" class="imagem-sobreposta">
-        </a>-->
+        </a>
         
         <!-- Imagem base (de fundo) -->
         <img src="mainimg/—Pngtree—open gift box_8928267.png" alt="Imagem de fundo" class="imagem-base" >     
     </div>
-    <!-- Imagem de fundo -->
-    <!--<img src="mainimg/—Pngtree—open gift box_8928267.png" alt="Mensagem de amor" style="width: 500px; height: 500px;">-->
+ 
   </div>
 
   <script>
