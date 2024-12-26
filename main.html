@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Amor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #ffe6e6;
+      color: #333;
+    }
+    .quiz-container, .main-content {
+      display: none;
+      padding: 20px;
+    }
+    .quiz-container.active {
+      display: block;
+    }
+    .main-content.active {
+      display: block;
+    }
+    .question {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .option {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #ffa1a1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .option:hover {
+      background-color: #ff6b6b;
+    }
+    #result {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+
+    /* Estilos para o contêiner */
+    .imagem-container {
+            position: relative;
+            width: 500px;  /* Largura do contêiner */
+            height: 300px; /* Altura do contêiner */
+            display: flex; /* Usando flexbox para centralizar */
+            justify-content: center; /* Alinha as imagens horizontalmente */
+            align-items: center; /* Alinha as imagens verticalmente */
+            margin: 0 auto; /* Centraliza o contêiner na página */
+            /*border: 1px solid #ccc;  Opcional: borda para visualizar o contêiner */
+        }
+
+        /* A primeira imagem (de fundo) */
+        .imagem-base {
+            width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
+            height: 100%; /* Faz a imagem ocupar toda a altura do contêiner */
+            object-fit: cover; /* A imagem mantém a proporção e cobre a área do contêiner */
+        }
+
+        /* A imagem sobreposta, que fica centralizada sobre a base */
+        .imagem-sobreposta {
+            position: absolute;
+            top: 60px;
+            left: 150px;
+            width: 40%; /* Ajuste o tamanho da imagem sobreposta */
+            height: 50%; /* Ajuste o tamanho da imagem sobreposta */
+            object-fit: contain; /* A imagem sobreposta manterá a proporção */
+        }
+
+        /* O link envolvendo a imagem sobreposta */
+        .link-imagem {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+  </style>
+</head>
+<body>
+  <!-- Contêiner do Quiz -->
+  <div class="quiz-container active" id="quiz-container">
+    <h1>Quiz de Amor</h1>
+    <div id="quiz">
+      <!-- Perguntas e opções serão carregadas aqui -->
+    </div>
+    <p id="result"></p>
+    <button id="next-btn" style="display:none;">Próxima</button>
+  </div>
+
+  <!-- Contêiner Principal (Conteúdo escondido inicialmente) -->
+  <div class="main-content" id="main-content">
+    <h1>Parabéns, Amori! 🎉</h1>
+    <p>Acertaste todas as perguntas! Tens aqui outro presente especial para ti!</p>
+    <p>💖 Tu és a razão de todos os meus sorrisos! 💖</p>
+    <div class="imagem-container">
+        <!-- Link que envolve a imagem sobreposta -->
+        <a href="https://raulnunesss.github.io/carol_prenda_2024/" class="link-imagem">
+            <img src="mainimg/_104867988_gettyimages-894318098_976.jpg.webp" alt="Imagem sobreposta" class="imagem-sobreposta">
+        </a>
+        
+        <!-- Imagem base (de fundo) -->
+        <img src="mainimg/—Pngtree—open gift box_8928267.png" alt="Imagem de fundo" class="imagem-base" style="width: 500px; height: 500px;">
+    </div>
+    <!-- Imagem de fundo -->
+    <!--<img src="mainimg/—Pngtree—open gift box_8928267.png" alt="Mensagem de amor" style="width: 500px; height: 500px;">-->
+  </div>
+
+  <script>
+    // Dados do Quiz
+    const quizData = [
+      {
+        question: "Qual foi o dia do nosso primeiro encontro?",
+        options: ["25 de junho", "26 de junho", "27 de junho", "27 de julho"],
+        correct: 2, // Índice da resposta correta
+      },
+      {
+        question: "Onde foi nossa primeira viagem juntos?",
+        options: ["Praia", "Montanha", "Cidade X", "Cidade Y"],
+        correct: 2,
+      },
+      {
+        question: "Qual é minha comida favorita?",
+        options: ["Pizza", "Sushi", "Lasanha", "Hambúrguer"],
+        correct: 1,
+      },
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const quizContainer = document.getElementById("quiz-container");
+    const mainContent = document.getElementById("main-content");
+    const quizElement = document.getElementById("quiz");
+    const resultElement = document.getElementById("result");
+    const nextButton = document.getElementById("next-btn");
+
+    function loadQuestion() {
+      const current = quizData[currentQuestion];
+      quizElement.innerHTML = `
+        <div class="question">${current.question}</div>
+        ${current.options
+          .map(
+            (option, index) =>
+              `<button class="option" onclick="selectOption(${index})">${option}</button>`
+          )
+          .join("")}
+      `;
+      resultElement.textContent = "";
+    }
+
+    function selectOption(selectedIndex) {
+      const current = quizData[currentQuestion];
+      if (selectedIndex === current.correct) {
+        score++;
+        resultElement.textContent = "Resposta correta! 🎉";
+        resultElement.style.color = "green";
+      } else {
+        resultElement.textContent = "Ops! Resposta errada. 😔";
+        resultElement.style.color = "red";
+      }
+
+      document.querySelectorAll(".option").forEach((btn) => {
+        btn.disabled = true;
+      });
+
+      nextButton.style.display = "inline-block";
+    }
+
+    nextButton.addEventListener("click", () => {
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+        nextButton.style.display = "none";
+      } else {
+        showMainContent();
+      }
+    });
+
+    function showMainContent() {
+      if (score === quizData.length) {
+        quizContainer.classList.remove("active");
+        mainContent.classList.add("active");
+      } else {
+        quizElement.innerHTML = `<p>Você precisa acertar todas as perguntas para desbloquear o conteúdo! 🥺</p>`;
+        nextButton.style.display = "none";
+        score = 0; // Reinicia o jogo se necessário
+        currentQuestion = 0;
+        setTimeout(() => loadQuestion(), 2000); // Reinicia o quiz
+      }
+    }
+
+    // Inicia o quiz
+    loadQuestion();
+  </script>
+</body>
+</html>
