@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz de Amor</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      background-color: #ffe6e6;
-      color: #333;
-    }
-    .quiz-container, .main-content {
-      display: none;
-      padding: 20px;
-    }
-    .quiz-container.active {
-      display: block;
-    }
-    .main-content.active {
-      display: block;
-    }
-    .question {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-    }
-    .option {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: #ffa1a1;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .option:hover {
-      background-color: #ff6b6b;
-    }
-    #result {
-      font-size: 1.2em;
-      margin-top: 20px;
-    }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiz de Amor</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #ffe6e6;
+            color: #333;
+            }
+            .quiz-container, .main-content {
+            display: none;
+            padding: 20px;
+            }
+            .quiz-container.active {
+            display: block;
+            }
+            .main-content.active {
+            display: block;
+            }
+            .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            }
+            .option {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #ffa1a1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            }
+            .option:hover {
+            background-color: #ff6b6b;
+            }
+            #result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            }
 
-    /* Estilos para o contêiner */
-    .imagem-container {
-            position: relative;
-            width: 500px;  /* Largura do contêiner */
-            height: 300px; /* Altura do contêiner */
-            display: flex; /* Usando flexbox para centralizar */
-            justify-content: center; /* Alinha as imagens horizontalmente */
-            align-items: center; /* Alinha as imagens verticalmente */
-            margin: 0 auto; /* Centraliza o contêiner na página */
-            /*border: 1px solid #ccc;  Opcional: borda para visualizar o contêiner */
-        }
+            /* Estilos para o contêiner */
+            .imagem-container {
+                    position: relative;
+                    width: 500px;  /* Largura do contêiner */
+                    height: 300px; /* Altura do contêiner */
+                    display: flex; /* Usando flexbox para centralizar */
+                    justify-content: center; /* Alinha as imagens horizontalmente */
+                    align-items: center; /* Alinha as imagens verticalmente */
+                    margin: 0 auto; /* Centraliza o contêiner na página */
+                    /*border: 1px solid #ccc;  Opcional: borda para visualizar o contêiner */
+                }
 
-        /* A primeira imagem (de fundo) */
-        .imagem-base {
-            width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
-            height: 100%; /* Faz a imagem ocupar toda a altura do contêiner */
-            object-fit: cover; /* A imagem mantém a proporção e cobre a área do contêiner */
-        }
+                /* A primeira imagem (de fundo) */
+                .imagem-base {
+                    width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
+                    height: 100%; /* Faz a imagem ocupar toda a altura do contêiner */
+                    object-fit: cover; /* A imagem mantém a proporção e cobre a área do contêiner */
+                }
 
-        /* A imagem sobreposta, que fica centralizada sobre a base */
-        .imagem-sobreposta {
-            position: absolute;
-            top: 60px;
-            left: 150px;
-            width: 40%; /* Ajuste o tamanho da imagem sobreposta */
-            height: 50%; /* Ajuste o tamanho da imagem sobreposta */
-            object-fit: contain; /* A imagem sobreposta manterá a proporção */
-        }
+                /* A imagem sobreposta, que fica centralizada sobre a base */
+                .imagem-sobreposta {
+                    position: absolute;
+                    top: 60px;
+                    left: 150px;
+                    width: 30%; /* Ajuste o tamanho da imagem sobreposta */
+                    height: 40%; /* Ajuste o tamanho da imagem sobreposta */
+                    object-fit: contain; /* A imagem sobreposta manterá a proporção */
+                }
 
-        /* O link envolvendo a imagem sobreposta */
-        .link-imagem {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-  </style>
+                /* O link envolvendo a imagem sobreposta */
+                .link-imagem {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+        </style>
 </head>
 <body>
   <!-- Contêiner do Quiz -->
@@ -103,12 +103,12 @@
     <p>💖 Tu és a razão de todos os meus sorrisos! 💖</p>
     <div class="imagem-container">
         <!-- Link que envolve a imagem sobreposta -->
-        <a href="https://raulnunesss.github.io/carol_prenda_2024/" class="link-imagem">
+        <!--<a href="https://raulnunesss.github.io/carol_prenda_2024/" class="link-imagem">
             <img src="mainimg/_104867988_gettyimages-894318098_976.jpg.webp" alt="Imagem sobreposta" class="imagem-sobreposta">
-        </a>
+        </a>-->
         
         <!-- Imagem base (de fundo) -->
-        <img src="mainimg/—Pngtree—open gift box_8928267.png" alt="Imagem de fundo" class="imagem-base" style="width: 500px; height: 500px;">
+        <img src="mainimg/—Pngtree—open gift box_8928267.png" alt="Imagem de fundo" class="imagem-base" style="width: 400px; height: 400;">
     </div>
     <!-- Imagem de fundo -->
     <!--<img src="mainimg/—Pngtree—open gift box_8928267.png" alt="Mensagem de amor" style="width: 500px; height: 500px;">-->
