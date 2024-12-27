@@ -60,8 +60,8 @@
 
                 /* A primeira imagem (de fundo) */
                 .imagem-base {
-                    width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
-                    height: 100%; /* Faz a imagem ocupar toda a altura do contêiner */
+                    width: auto; /* Faz a imagem ocupar toda a largura do contêiner */
+                    height: auto; /* Faz a imagem ocupar toda a altura do contêiner */
                     object-fit: cover; /* A imagem mantém a proporção e cobre a área do contêiner */
                 }
 
@@ -89,7 +89,8 @@
 <body>
   <!-- Contêiner do Quiz -->
   <div class="quiz-container active" id="quiz-container">
-    <h1>Quiz de Amor</h1>
+    <h1>Joguinho do Amor</h1>
+    <h2>5 perguntas para passares no teste 💖</h2>
     <div id="quiz">
       <!-- Perguntas e opções serão carregadas aqui -->
     </div>
@@ -102,14 +103,14 @@
     <h1>Parabéns, Amori! 🎉</h1>
     <p>Acertaste todas as perguntas! Tens aqui outro presente especial para ti!</p>
     <p>💖 Tu és a razão de todos os meus sorrisos! 💖</p>
+    <p>Carrega no presente!! ⬇ </p>
     <div class="imagem-container">
-        <!-- Link que envolve a imagem sobreposta -->
-        <a href="https://raulnunesss.github.io/carol_prenda_2024/" class="link-imagem">
-            <img src="mainimg/_104867988_gettyimages-894318098_976.jpg.webp" alt="Imagem sobreposta" class="imagem-sobreposta">
-        </a>
+       
         
         <!-- Imagem base (de fundo) -->
-        <img src="mainimg/—Pngtree—open gift box_8928267.png" alt="Imagem de fundo" class="imagem-base" >     
+        <a href="https://raulnunesss.github.io/carol_prenda_2024/" target="_blank">
+        <img src="mainimg/—Pngtree—opened red ribbon wrapping christmas_5546127.png" alt="Imagem de fundo" class="imagem-base" >     
+        </a>
     </div>
  
   </div>
@@ -120,6 +121,16 @@
       {
         question: "Qual foi o dia do nosso primeiro encontro?",
         options: ["25 de junho", "26 de junho", "27 de junho", "27 de julho"],
+        correct: 2, // Índice da resposta correta
+      },
+      {
+        question: "Qual é a minha cor favorita?",
+        options: ["Vermelho", "Branco", "Preto", "Branco e Preto"],
+        correct: 0, // Índice da resposta correta
+      },
+      {
+        question: "Qual o primeiro restaurante que comemos?",
+        options: ["FU89", "Tartufo", "Itália", "No forum"],
         correct: 2, // Índice da resposta correta
       },
       {
@@ -161,10 +172,10 @@
       const current = quizData[currentQuestion];
       if (selectedIndex === current.correct) {
         score++;
-        resultElement.textContent = "Resposta correta! 🎉";
+        resultElement.textContent = "Boa acertaste 😍";
         resultElement.style.color = "green";
       } else {
-        resultElement.textContent = "Ops! Resposta errada. 😔";
+        resultElement.textContent = "Boa falhaste 😔";
         resultElement.style.color = "red";
       }
 
